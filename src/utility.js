@@ -46,6 +46,7 @@ function printResult( data, delimeter, ...propertiesToPrint ){
         return;
     }
 
+    console.log("\n***********************  Result Start  ***********************\n");
     data.forEach( ( item, index ) => {
 
         let str = '';
@@ -57,7 +58,8 @@ function printResult( data, delimeter, ...propertiesToPrint ){
             `${ index + 1 }. ${ str }`
         )
 
-    })
+    });
+    console.log("\n***********************  Result End  ***********************\n");
 
 }
 

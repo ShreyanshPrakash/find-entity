@@ -41,7 +41,7 @@ class ReadFile extends EventEmitter{
     
     handleReadlineClose(){
         console.log("****************  File read is completed  *****************");
-        this.emit('fileReadCcomplete', this.fileDataArray )
+        this.emit('fileReadComplete', this.fileDataArray )
     };
 
 }
