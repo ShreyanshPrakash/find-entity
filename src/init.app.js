@@ -4,8 +4,6 @@ const { searchElementsWithinDistance } = require('geographic-item-search');
 const ReaadFile = require('./readFile');
 const CustomCLI = require('./cli.readline');
 const { generateReferencePoint, degreesToRadians, bubbleSort, printResult } = require('./utility');
-// const { mergeSort, bubbleSort } = require('./sorting');
-
 
 
 let latitude, longitude, EARTH_RADIUS, distanceToSearch;
@@ -28,7 +26,7 @@ EARTH_RADIUS = 6371;
 
 
 // questions to be asked on cli.
-// can get this from DB.
+// can get this from DB or from the parent module
 const questions = [
     "Do you want to search entity( customer, shop ,etc ) near your area ? (Y/N) : ",
     "Enter reference point\'s latitude in degree : ",
@@ -43,15 +41,15 @@ currentQuestionIndex = 0;
  On read complete, convert degrees to radians and add them as properties to each entity object
  Sort the whole data --> For subsequent request to search the area wont require to sort the search result again.
 */
-function init(){
-
+function init( filePath ){
+    
     let readfile = new ReaadFile();
-    let filePath = path.join(
+    filePath = filePath ? filePath : path.join(
         __dirname, '..', 'assets', 'Customers _Assignment_Coding Challenge.txt'
-    )
-    readfile.readFileLineByLine( filePath );
+    );
     readfile.addListener( 'fileReadComplete', handleFileReadComplete );
-
+    readfile.readFileLineByLine( filePath );
+    
 }
 
 /*
@@ -59,7 +57,7 @@ function init(){
  Initialize the CLI with question, question Number To Start from and a array map to recieve the answers in order of thier questions
  Once all the answer is received from terminal, endOfInteraction event is emitted with the answers in the same order.
  */
-function iniCli(){
+function initCli(){
 
     let cli = new CustomCLI(
         questions,
@@ -93,7 +91,7 @@ function handleFileReadComplete( entities ){
     console.log("\n***********************  Demo case  ************************");
     console.log("FOR Input ---> latitude : 53.339428, longitude : -6.257664, distanceToSearch : 100, EARTH_RADIUS : 6371 \n")
     printResult( searchResult, '\n' , 'name', 'user_id' );
-    iniCli();
+    initCli();
 
 }
 
@@ -108,6 +106,11 @@ function handleCliAnswers( event ){
     printResult( searchResult, '\n' , 'name', 'user_id' );
 }
 
-process.addListener('uncaughtException', event => console.log("Something broke. Try again") );
+process.addListener('uncaughtException', event => console.log("Something broke. Try again", event) );
 
 init();
+
+module.exports = {
+    init,
+    initCli
+}

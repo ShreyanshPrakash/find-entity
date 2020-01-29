@@ -49,6 +49,14 @@ Questions
 The result for the above input will be logged and CLI will loop till you answer **N** to the first question.
 
 
+## Setup
+
+```
+const { init } = require('find-entity);
+init()                  // defaults to sample file.
+init( 'path/to/file')   // file passed is used to initialize. 
+```
+
 
 
 **This package is published on [npm](https://www.npmjs.com/package/find-entity)**
