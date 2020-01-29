@@ -11,7 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/ShreyanshPrakash/find-entity.git"
   },
-  "keywords": [],
+  "keywords": [
+    "find",
+    "latitude",
+    "longitude"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
