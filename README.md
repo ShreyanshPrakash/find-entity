@@ -57,6 +57,16 @@ init()                  // defaults to sample file.
 init( 'path/to/file')   // file passed is used to initialize. 
 ```
 
+**File format**
+
+File used for search should be a .txt and of below format
+```
+{"latitude": "52.986375", "user_id": 12, "name": "Christina McArdle", "longitude": "-6.043701"}
+{"latitude": "51.92893", "user_id": 1, "name": "Alice Cahill", "longitude": "-10.27699"}
+...
+```
+
+
 
 
 **This package is published on [npm](https://www.npmjs.com/package/find-entity)**
