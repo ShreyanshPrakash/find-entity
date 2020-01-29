@@ -90,7 +90,8 @@ function handleFileReadComplete( entities ){
 
     // doing initial search for demo values
     let searchResult = searchElementsWithinDistance( sortedEntitiessData, latitude, longitude, distanceToSearch, EARTH_RADIUS );
-    console.log("\n***********************  Results for demo case  ************************\n");
+    console.log("\n***********************  Results for demo case  ************************");
+    console.log("FOR ---> latitude : 53.339428, longitude : -6.257664, distanceToSearch : 100, EARTH_RADIUS : 6371 \n")
     printResult( searchResult, '\n' , 'name', 'user_id' );
     iniCli();
 
