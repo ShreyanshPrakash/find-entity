@@ -2,8 +2,8 @@
 function generateReferencePoint( lat1, long1, distanceToSearch, EARTH_RADIUS ){
     latitude = degreesToRadians( lat1 );
     longitude = degreesToRadians( long1 ); 
-    EARTH_RADIUS = EARTH_RADIUS ? Number( EARTH_RADIUS ) : 6371;
-    distanceToSearch = distanceToSearch ? Number( distanceToSearch ) : 100;
+    distanceToSearch = distanceToSearch <= 0 ? Number( distanceToSearch ) : 100;
+    EARTH_RADIUS = EARTH_RADIUS !== '' ? Number( EARTH_RADIUS ) : 6371;
 
     return [
         latitude,

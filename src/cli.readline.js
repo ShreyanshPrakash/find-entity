@@ -70,6 +70,7 @@ class CustomCLI extends EventEmitter{
         switch ( interaction.query ) {
     
             case this.questions[0] :
+
                 if( interaction.answer === 'N' ){
                     process.stdin.destroy();
                 }else if( interaction.answer === 'Y' ){
@@ -77,48 +78,43 @@ class CustomCLI extends EventEmitter{
                 }else{
                     console.log("***********  Please enter either Y or N  ************\n");
                 }
+
                 break;
     
             case this.questions[1] :
-                this.cliAnswers[0] = Number( interaction.answer );
-                if( typeof this.cliAnswers[0] === 'number' ){
-                    this.cliAnswers[0] = this.cliAnswers[0];
-                    this.currentQuestionIndex++;
-                }
+                this.handleCase( 0, interaction );
                 break;
     
             case this.questions[2] :
-                this.cliAnswers[1] = Number( interaction.answer );
-                if( typeof this.cliAnswers[1] === 'number' ){
-                    this.cliAnswers[1] = this.cliAnswers[1];
-                    this.currentQuestionIndex++;
-                }
+                this.handleCase( 1, interaction );
                 break;
     
             case this.questions[3] :
-                this.cliAnswers[2] = Number( interaction.answer );
-                if( typeof this.cliAnswers[2] === 'number' ){
-                    this.cliAnswers[2] = this.cliAnswers[2];
-                    this.currentQuestionIndex++;
-                }
+                this.handleCase( 2, interaction );
                 break;
     
-            case this.questions[4] :
+            case this.questions[4] : 
+
                 if( !interaction.answer ){
-                    this.cliAnswers[3] = 6371;
-                    // process.stdin.destroy();
+                    this.cliAnswers[3] = interaction.answer;
                     this.currentQuestionIndex++;
                 }
                 else {
-                    this.cliAnswers[3] = Number( interaction.answer );
-                    this.cliAnswers[3] = this.cliAnswers[3]; //
-                    // process.stdin.destroy();
-                    this.currentQuestionIndex++;
+                    this.handleCase( 3, interaction );
                 }
+
                 break;
             
             default:
+                console.log("Default case");
                 break;
+        }
+    }
+
+    handleCase( index, interaction ){
+        this.cliAnswers[ index ] = Number( interaction.answer );
+        if( !Number.isNaN( this.cliAnswers[ index ] ) && interaction.answer ){
+            this.currentQuestionIndex++;
         }
     }
 

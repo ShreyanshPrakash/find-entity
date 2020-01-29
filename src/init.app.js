@@ -108,7 +108,8 @@ function handleCliAnswers( event ){
 
 process.addListener('uncaughtException', event => console.log("Something broke. Try again", event) );
 
-init();
+if( process.argv[2] === '--init')
+    init();
 
 module.exports = {
     init,

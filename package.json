@@ -1,11 +1,11 @@
 {
   "name": "find-entity",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A npm package that finds the list of entities such as customers, shops etc, within a given distance from a reference point",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/init.app.js"
+    "start": "node ./src/init.app.js --init"
   },
   "repository": {
     "type": "git",
