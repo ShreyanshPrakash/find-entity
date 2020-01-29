@@ -51,7 +51,7 @@ The result for the above input will be logged and CLI will loop till you answer 
 
 
 
-**This package is published to [npm](https://www.npmjs.com/package/find-entity)**
+**This package is published on [npm](https://www.npmjs.com/package/find-entity)**
 
 Dependencies
 ```
@@ -59,7 +59,7 @@ geographic-item-search
 ```
 
 
-**Future Scope**
+## Future Scope
 ```
-- Initialize with random file taking file path as input from CLI( Interface 1 )
-- UI and Api to expose the logic on the web for better user experience ( Interface 2 )
+-Initialize with random file taking file path as input from CLI( Interface 1 )
+-UI and Api to expose the logic on the web for better user experience ( Interface 2 )
