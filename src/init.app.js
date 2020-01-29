@@ -33,7 +33,7 @@ const questions = [
     "Do you want to search entity( customer, shop ,etc ) near your area ? (Y/N) : ",
     "Enter reference point\'s latitude in degree : ",
     "Enter reference point\'s longitude in degree : ",
-    "Max radial distance in Kms from reference point : ",
+    "Max distance in Kms from reference point to search : ", 
     "Radius of Earth ( default: 6371 ) :"
 ];
 currentQuestionIndex = 0;
